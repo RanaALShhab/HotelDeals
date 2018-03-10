@@ -1,0 +1,31 @@
+﻿
+
+@using HotelDeals.Models
+
+@model Offerinfo
+
+
+<div id="Offers">
+    <table class="table" >
+        <tr>
+            <th>
+                @Html.LabelFor(x => x.siteID, "siteID") : @Model.siteID
+
+            </th>
+            <th>
+                @Html.LabelFor(x => x.currency, "currency") : @Model.currency
+
+            </th>
+            <th>
+                @Html.LabelFor(x => x.language, "language") :  @Model.language
+
+            </th>
+            <th>
+                @Html.LabelFor(x => x.userSelectedCurrency, "userSelectedCurrency") : @Model.userSelectedCurrency
+
+            </th>
+        </tr>
+
+        
+    </table>
+</div>

@@ -1,0 +1,144 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/Hotle.js"></script>
+
+@using HotelDeals.Models
+
+@model  IEnumerable<Hotel>
+
+
+<div id="hotelPricingInfo">
+    <h2> Hotel Price & Offer Date </h2>
+
+    <div style="padding-bottom:20px ; padding-top:20px ">
+        <table>
+            <tr>
+                <td>@Html.Label("Search") </td>
+
+                <td><input type="text" id="txtSearch" /> </td>
+                <td width="100px"></td>
+                <td><input type="submit" class="btn btn-default" value="Search" onclick="search(3)" /></td>
+            </tr>
+        </table>
+
+    </div>
+   
+    <table class="table">
+       
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(xy => xy.hotelPricingInfo.averagePriceValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(xy => xy.hotelPricingInfo.totalPriceValue)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(xy => xy.hotelPricingInfo.crossOutPriceValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(xy => xy.hotelPricingInfo.originalPricePerNight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(xy => xy.hotelPricingInfo.currency)
+            </th>
+            <th>
+                @Html.DisplayNameFor(xy => xy.hotelPricingInfo.percentSavings)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(xy => xy.hotelPricingInfo.drr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(xy => xy.offerDateRange.travelStartDate)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(xy => xy.offerDateRange.travelEndDate)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(xy => xy.offerDateRange.lengthOfStay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(xy => xy.hotelUrls.hotelInfositeUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(xy => xy.hotelUrls.hotelSearchResultUrl)
+            </th>
+            
+
+        </tr>
+
+        @foreach (var xx in Model)
+        {
+           
+            <tr>
+                <td>
+                    @xx.hotelPricingInfo.averagePriceValue
+                </td>
+                <td>
+                    @xx.hotelPricingInfo.totalPriceValue
+                </td>
+                <td>
+                    @xx.hotelPricingInfo.crossOutPriceValue
+                </td>
+                <td>
+                    @xx.hotelPricingInfo.originalPricePerNight
+                </td>
+                <td>
+                    @xx.hotelPricingInfo.currency
+                </td>
+                <td>
+                    @xx.hotelPricingInfo.percentSavings
+                </td>
+                <td>
+                    @if (@xx.hotelPricingInfo.drr == true)
+                    {
+                        <input id="vipAccess" name="vipAccess" type="checkbox" checked="checked" />
+                    }
+                    else
+                    {
+                        <input id="vipAccess" name="vipAccess" type="checkbox" />
+
+                    }
+
+                </td>
+                <td>
+                   
+                    @xx.offerDateRange.travelStartDate[0].ToString()/@xx.offerDateRange.travelStartDate[1].ToString()/@xx.offerDateRange.travelStartDate[2].ToString()
+                    
+                   
+                  </td>
+                <td>
+                    @xx.offerDateRange.travelEndDate[0].ToString()/@xx.offerDateRange.travelEndDate[1].ToString()/@xx.offerDateRange.travelEndDate[2].ToString()
+                </td>
+
+                <td>
+                    @xx.offerDateRange.lengthOfStay
+                </td>
+
+                <td>
+                  <a href= @xx.hotelUrls.hotelInfositeUrl> @xx.hotelUrls.hotelInfositeUrl </a>
+                </td>
+
+                <td>
+                    <a href=  @xx.hotelUrls.hotelSearchResultUrl> @xx.hotelUrls.hotelSearchResultUrl </a>
+                  
+                </td>
+
+               
+
+              
+
+                
+            </tr>
+
+        }
+
+    </table>
+</div>

@@ -1,0 +1,97 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/Hotle.js"></script>
+
+@using HotelDeals.Models
+@model  IEnumerable<Hotel>
+<div id="Offersdestination">
+
+    <h2> Hotel Destination</h2>
+
+    <div style="padding-bottom:20px ; padding-top:20px ">
+        <table >
+            <tr>
+                <td>@Html.Label("Search") </td>
+                
+                <td><input type="text" id="txtSearch" /> </td>
+                <td width="100px"></td>
+                <td><input type="submit" class="btn btn-default" value="Search" onclick="search(2)" /></td>
+            </tr>
+        </table>
+
+    </div>
+
+    <table class="table">
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(xy => xy.destination.regionID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(xy => xy.destination.longName)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(xy => xy.destination.shortName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(xy => xy.destination.city)
+            </th>
+            <th>
+                @Html.DisplayNameFor(xy => xy.destination.country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(xy => xy.destination.associatedMultiCityRegionId)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(xy => xy.destination.nonLocalizedCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(xy => xy.destination.province)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(xy => xy.destination.tla)
+            </th>
+
+
+        </tr>
+
+        @foreach (var xx in Model)
+        {
+            <tr>
+                <td>
+                    @xx.destination.regionID
+                </td>
+                <td>
+                    @xx.destination.longName
+                </td>
+                <td>
+                    @xx.destination.shortName
+                </td>
+                <td>
+                    @xx.destination.city
+                </td>
+                <td>
+                    @xx.destination.country
+                </td>
+                <td>
+                    @xx.destination.associatedMultiCityRegionId
+                </td>
+                <td>
+                    @xx.destination.nonLocalizedCity
+                </td>
+                <td>
+                    @xx.destination.province
+                </td>
+                <td>
+                    @xx.destination.tla
+                </td>
+            </tr>
+
+        }
+
+    </table>
+</div>

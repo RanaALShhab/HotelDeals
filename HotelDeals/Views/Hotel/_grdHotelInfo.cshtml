@@ -1,0 +1,179 @@
+﻿
+<script src="~/Scripts/Hotle.js"></script>
+
+
+@using HotelDeals.Models
+@model  IEnumerable<Hotel>
+
+
+<div id="HotelInfo">
+    <h2> Hotel Information </h2>
+    <div style="padding-bottom:20px ; padding-top:20px ">
+        <table>
+            <tr>
+                <td>@Html.Label("Search") </td>
+
+                <td><input type="text" id="txtSearch" /> </td>
+                <td width="100px"></td>
+                <td><input type="submit" class="btn btn-default" value="Search" onclick="search(1)" /></td>
+            </tr>
+        </table>
+
+    </div>
+
+    <table class="table">
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(xy => xy.hotelInfo.hotelId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(xy => xy.hotelInfo.hotelName)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(xy => xy.hotelInfo.localizedHotelName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(xy => xy.hotelInfo.hotelDestination)
+            </th>
+            <th>
+                @Html.DisplayNameFor(xy => xy.hotelInfo.hotelDestinationRegionID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(xy => xy.hotelInfo.hotelLongDestination)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(xy => xy.hotelInfo.hotelStreetAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(xy => xy.hotelInfo.hotelCity)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(xy => xy.hotelInfo.hotelProvince)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(xy => xy.hotelInfo.hotelCountryCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(xy => xy.hotelInfo.hotelLatitude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(xy => xy.hotelInfo.hotelLongitude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(xy => xy.hotelInfo.hotelStarRating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(xy => xy.hotelInfo.hotelGuestReviewRating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(xy => xy.hotelInfo.hotelReviewTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(xy => xy.hotelInfo.hotelImageUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(xy => xy.hotelInfo.vipAccess)
+            </th>
+            <th>
+                @Html.DisplayNameFor(xy => xy.hotelInfo.isOfficialRating)
+            </th>
+
+        </tr>
+
+        @foreach (var xx in Model)
+        {
+            <tr>
+                <td>
+                    @xx.hotelInfo.hotelId
+                </td>
+                <td>
+                    @xx.hotelInfo.hotelName
+                </td>
+                <td>
+                    @xx.hotelInfo.localizedHotelName
+                </td>
+                <td>
+                    @xx.hotelInfo.hotelDestination
+                </td>
+                <td>
+                    @xx.hotelInfo.hotelDestinationRegionID
+                </td>
+                <td>
+                    @xx.hotelInfo.hotelLongDestination
+                </td>
+                <td>
+                    @xx.hotelInfo.hotelStreetAddress
+                </td>
+                <td>
+                    @xx.hotelInfo.hotelCity
+                </td>
+                <td>
+                    @xx.hotelInfo.hotelProvince
+                </td>
+
+                <td>
+                    @xx.hotelInfo.hotelCountryCode
+                </td>
+
+                <td>
+                    @xx.hotelInfo.hotelLatitude
+                </td>
+
+                <td>
+                    @xx.hotelInfo.hotelLongitude
+                </td>
+
+                <td>
+                    @xx.hotelInfo.hotelStarRating
+                </td>
+
+                <td>
+                    @xx.hotelInfo.hotelGuestReviewRating
+                </td>
+
+                <td>
+                    @xx.hotelInfo.hotelReviewTotal
+                </td>
+
+                <td>
+                    <img src=@xx.hotelInfo.hotelImageUrl />
+
+                </td>
+
+                <td>
+                    @if (@xx.hotelInfo.vipAccess == true)
+                    {
+                        <input id="vipAccess" name="vipAccess" type="checkbox" checked="checked" />
+                    }
+                    else
+                    {
+                        <input id="vipAccess" name="vipAccess" type="checkbox"  />
+
+                    }
+
+                </td>
+
+                <td>
+                    @if (@xx.hotelInfo.isOfficialRating == true)
+                    {
+                        <input id="isOfficialRating" name="isOfficialRating" type="checkbox"  checked="checked" />
+                    }
+                    else
+                    {
+                         <input id="isOfficialRating" name="isOfficialRating" type="checkbox"  />
+
+
+                    }
+
+                </td>
+            </tr>
+
+        }
+
+    </table>
+</div>

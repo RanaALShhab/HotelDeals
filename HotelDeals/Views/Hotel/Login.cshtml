@@ -1,0 +1,51 @@
+﻿
+
+@using HotelDeals.Models
+
+@model Userinfo
+
+<div class="form-group" style="border : 1px solid;padding-bottom : 100px ; padding-top : 100px  ; padding-left : 50px ; padding-right : 50px">
+    <h2>Login Page </h2>
+    <div id="Login">
+        <table class="table">
+            <tr>
+                <th>
+                    Personal Type :
+                </th>
+                <th>
+
+                    @Html.TextBoxFor(model => model.persona.personaType, new { @class = "form-control", readOnly = "true;" })
+                </th>
+            </tr>
+            <tr></tr>
+            <tr></tr>
+            <tr>
+                <th>
+                    UserID :
+                </th>
+                <th>
+
+                    @Html.TextBoxFor(model => model.userId, new { @class = "form-control", readOnly = "true;" })
+
+
+                </th>
+                <th width="30%" ></th>
+                <th  width="50%">
+                    <img src="~/fonts/Image/download.jpg"   />
+                </th>
+            </tr>
+            
+
+        </table>
+    </div>
+    
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li style="background-color:azure  ; font:200 ; color:white ; width:100px ; text-align:center">
+                @Html.ActionLink("Go To Home Page ", "Index", "Hotel")
+            </li>
+
+        </ul>
+
+    </div>
+</div>
